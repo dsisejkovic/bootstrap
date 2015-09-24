@@ -499,7 +499,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position'])
     };
   }])
 
-  .directive('focusMe', function(){
+  .directive('shouldFocus', function(){
      return {
        restrict: 'A',
        link: function(scope,element,attrs){
