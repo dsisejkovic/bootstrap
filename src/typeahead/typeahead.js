@@ -499,6 +499,19 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position'])
     };
   }])
 
+  .directive('focusMe', function(){
+     return {
+       restrict: 'A',
+       link: function(scope,element,attrs){
+         scope.$watch(attrs.shouldFocus,function(newValue,oldValue){
+           if (newValue) { 
+            element[0].scrollIntoView(false);
+          }  
+         });
+       }
+     };
+  })
+
   .filter('typeaheadHighlight', ['$sce', '$injector', '$log', function($sce, $injector, $log) {
     var isSanitizePresent;
     isSanitizePresent = $injector.has('$sanitize');
